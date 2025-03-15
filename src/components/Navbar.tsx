@@ -2,20 +2,12 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
-  const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const routes = [
-    { href: "/", label: "Home" },
-    { href: "/quiz", label: "Quiz" },
-    ,
-  ]
 
   return (
     <header className="sticky mx-2 top-0 z-50  border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

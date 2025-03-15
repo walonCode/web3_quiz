@@ -8,13 +8,16 @@ import QuestionCard from "./QuestionCard"
 import { questions } from "@/data/questions"
 import { answers } from "@/data/answers"
 import { getRandomQuestion } from "@/helpers/getRandomQuestion"
+import { useContext } from "react"
+import scoreContext from "@/context/scoreContext"
 
 export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({})
   const [quizQuestions, setQuizQuestions] = useState<typeof questions>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [score, setScore] = useState(0)
   const router = useRouter()
+
+  const {setScore} = useContext(scoreContext) || {}
 
   const handleAnswerSelection = (choice: string) => {
     const currentQuestion = quizQuestions[currentQuestionIndex]
@@ -22,14 +25,14 @@ export default function Quiz() {
 
     // Check if the answer is correct
     if (choice === answers[currentQuestion.id]) {
-      setScore((prevScore) => prevScore + 1)
+      setScore!((prevScore) => prevScore + 1)
     }
 
     // Move to the next question or submit at the end
     if (currentQuestionIndex < 14) {
       setCurrentQuestionIndex((prev) => prev + 1)
     } else {
-      router.push(`/result?score=${score + (choice === answers[currentQuestion.id] ? 1 : 0)}`)
+      router.push(`/result`)
     }
   }
 
