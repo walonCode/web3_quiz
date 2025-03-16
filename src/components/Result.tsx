@@ -5,7 +5,7 @@ import { Share2, Home, RefreshCw, Trophy, Award, Medal } from "lucide-react"
 import Confetti from "@/components/Confetti"
 import { useRouter } from "next/navigation"
 
-export default function Result({score}: {score: number | undefined}) {
+export default function Result({score, handleRetry}: {score: number | undefined, handleRetry: () => void | undefined}) {
   const [showConfetti, setShowConfetti] = useState(false)
   const router = useRouter()
 
@@ -67,7 +67,7 @@ export default function Result({score}: {score: number | undefined}) {
                   <Home className="mr-2 h-4 w-4" />
                   Home
                 </Button>
-                <Button onClick={() => router.push("/quiz")} variant="outline">
+                <Button onClick={handleRetry} variant="outline">
                   <RefreshCw className="mr-2 h-4 w-4" />
                   Try Again
                 </Button>

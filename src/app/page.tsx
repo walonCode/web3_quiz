@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="bg-gradient-to-b from-primary/5 to-background flex flex-col items-center justify-center min-h-screen">
 
       <main className="flex-1">
         <section className="relative">
@@ -14,7 +14,7 @@ export default function HomePage() {
           <div className="absolute bottom-10 right-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
 
           {/* Hero Content */}
-          <div className="container relative z-10 px-4 py-24 md:py-32 lg:py-40 flex flex-col items-center text-center">
+          <div className=" relative z-10 px-4 py-24 md:py-32 lg:py-40 flex flex-col items-center text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">Test Your Web3 Knowledge</h1>
 
             <p className="text-xl text-muted-foreground max-w-2xl mb-12">
